@@ -1,12 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Documentation</title>
 </head>
 <body>
-    <p>This API is to help movie lovers make their own webpages</p>
+    <h1>API Documentation</h1>
+    <p>Welcome to the documentation for my Movie API. Below you will find information on the available HTTP requests and how to use them.</p>
+
+    <hr>
+
+    <h2>GET /movies</h2>
+    <p>Returns a list of all movies.</p>
+    <h3>Example Request:</h3>
+    <p>GET http://yourdomain.com/movies</p>
+    <h3>Example Response:</h3>
+    <p>Status Code: 200 OK</p>
+    <pre>
+    [
+        {
+            Title: "The Shawshank Redemption",
+            Description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+            Genre: {
+              Name: "Drama",
+              Description: "A serious narrative work that presents a realistic portrayal of characters within a social or emotional context."
+            },
+            Director: {
+              Name: "Frank Darabont",
+              Bio: "Frank Darabont is an American film director, screenwriter, and producer. He is best known for directing the films The Shawshank Redemption, The Green Mile, and The Mist.",
+              Birth: 1959
+            },
+            ImageURL: "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/shawshank.128000_480x.progressive.jpg?v=1590097750",
+            Featured: true
+        },
+        {
+            Title: "Interstellar",
+            Description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+            Genre: {
+              Name: "Sci-Fi",
+              Description: "A genre that uses speculative, fictional science-based depictions of phenomena that are not fully accepted by mainstream science."
+            },
+            Director: {
+              Name: "Christopher Nolan",
+              Bio: "Christopher Nolan is a British-American film director, producer, and screenwriter. He is known for his work on films such as Memento, The Dark Knight Trilogy, and Inception.",
+              Birth: 1970
+            },
+            ImageURL: "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/interstellar3_480x.progressive.jpg?v=1585846947",
+            Featured: true
+        }
+    ]
+    </pre>
+ 
+    <hr>
+
+    <h2>GET /movies/:title</h2>
+    <p>Returns data about a chosen movie.</p>
+    <h3>Example Request:</h3>
+    <p>GET http://yourdomain.com/movies/Now%20You%20See%20Me</p>
+    <h3>Example Response:</h3>
+    <p>Status Code: 200 OK</p>
+    <pre>
+    {
+        Title: "Now You See Me",
+        Description: "An FBI agent and an Interpol detective track a team of illusionists who pull off bank heists during their performances and reward their audiences with the money.",
+        Genre: {
+            Name: "Thriller",
+            Description: "A genre that uses suspense, tension, and excitement as the main elements to keep the audience engaged."
+        },
+        Director: {
+            Name: "Louis Leterrier",
+            Bio: "Louis Leterrier is a French film director, producer, and screenwriter. He is known for his work on films such as The Transporter, The Incredible Hulk, and Clash of the Titans.",
+            Birth: 1973
+        },
+        ImageURL: "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/5b47e5155dccae8898a0f8a0b4beadb8_1518d8a7-a7da-4619-896b-2f6d1c0ec541_480x.progressive.jpg?v=1573594003",
+        Featured: false
+    }
+    </pre>
+
+    <hr>
+
+    <h2>GET /movies/genre/:genreName</h2>
+    <p>Returns a description for a chosen genre of movie.</p>
+    <h3>Example Request:</h3>
+    <p>GET http://yourdomain.com/movies/genre/Drama</p>
+    <h3>Example Response:</h3>
+    <p>Status Code: 200 OK</p>
+    <pre>
+    {
+        "Name": "Drama",
+        "Description": "A serious narrative work that presents a realistic portrayal of characters within a social or emotional context."
+    }
+    </pre>
+
+    <hr>
+
+    <h2>GET /movies/director/:directorName</h2>
+    <p>Returns data on a chosen director.</p>
+    <h3>Example Request:</h3>
+    <p>GET http://yourdomain.com/movies/director/Christopher%20Nolan</p>
+    <h3>Example Response:</h3>
+    <p>Status Code: 200 OK</p>
+    <pre>
+    {
+        "Name": "Christopher Nolan",
+        "Bio": "Christopher Nolan is a British-American film director, producer, and screenwriter. He is known for his work on films such as Memento, The Dark Knight Trilogy, and Inception.",
+        "Birth": 1970
+    }
+    </pre>
+
+    <hr>
+
+    <h2>PUT /users/:id/:movieTitle</h2>
+    <p>Adds a movie to a user's favorite movies array.</p>
+    <h3>Example Request:</h3>
+    <p>PUT http://yourdomain.com/users/1/The%20Godfather%20Part%20II</p>
+    <h3>Example Response:</h3>
+    <p>Status Code: 200 OK</p>
+    <p>The response will include a message indicating that the movie has been added to the user's favorite movies array.</p>
+
+    <hr>
+
+    <h2>PUT /users/:id</h2>
+    <p>Updates a users name by their ID.</p>
+    <h3>Example Request:</h3>
+    <p>PUT http://yourdomain.com/users/1</p>
+    <p>Request Body:</p>
+    <pre>
+    {
+        "name": "[UPDATED NAME]",
+        "favoriteMovies": ["The Godfather", "The Shawshank Redemption", "The Dark Knight"]
+    }
+    </pre>
+    <h3>Example Response:</h3>
+    <p>Status Code: 200 OK</p>
+    <p>The response will include the updated user object.</p>
+
+    <hr>
+
+    <h2>DELETE /users/:id/:movieTitle</h2>
+    <p>Removes a movie from a user's favorite movies array.</p>
+    <h3>Example Request:</h3>
+    <p>DELETE http://yourdomain.com/users/1/The%20Godfather</p>
+    <h3>Example Response:</h3>
+    <p>Status Code: 200 OK</p>
+    <p>The response will include a message indicating that the movie has been removed from the user's favorite movies array.</p>
+
+    <hr>
+
+    <h2>DELETE /users/:id</h2>
+    <p>Deletes a user by their ID.</p>
+    <h3>Example Request:</h3>
+    <p>DELETE http://yourdomain.com/users/1</p>
+    <h3>Example Response:</h3>
+    <p>Status Code: 200 OK</p>
+    <p>The response will include a message indicating that the user has been deleted.</p>
+
+    <hr>
+
+    <h2>POST /users</h2>
+    <p>Creates a new user.</p>
+    <h3>Example Request:</h3>
+    <p>POST http://yourdomain.com/users</p>
+    <p>Request Body:</p>
+    <pre>
+    {
+        "name": "Bob Smith",
+        "favoriteMovies": ["The Matrix", "Pulp Fiction"]
+    }
+    </pre>
+    <h3>Example Response:</h3>
+    <p>Status Code: 201 Created</p>
+    <p>The response will include the newly created user object.</p>
+
+    <hr>
+
+
+
+    
 </body>
 </html>

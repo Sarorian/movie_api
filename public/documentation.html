@@ -16,36 +16,44 @@
     <h3>Example Response:</h3>
     <p>Status Code: 200 OK</p>
     <pre>
-    [
+        [
         {
-            Title: "The Shawshank Redemption",
-            Description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-            Genre: {
-              Name: "Drama",
-              Description: "A serious narrative work that presents a realistic portrayal of characters within a social or emotional context."
+            "Actors": [],
+            "_id": "64335f855683ef91921d2ea0",
+            "Title": "Inception",
+            "Description": "Inception is a mind-bending, action-packed sci-fi thriller that follows a skilled thief, Dom Cobb (Leonardo DiCaprio), who is tasked with planting an idea into the mind of a wealthy businessman. Cobb and his team of specialists must navigate the dream world to pull off the impossible heist while dealing with the dangers of their own subconscious UPDATED.",
+            "Genre": {
+                "_id": "643352e75683ef91921d2e85",
+                "name": "Action",
+                "description": "A genre of film in which the protagonist or protagonists are thrust into a series of challenges that typically include violence, extended fighting, physical feats, and frantic chases."
             },
-            Director: {
-              Name: "Frank Darabont",
-              Bio: "Frank Darabont is an American film director, screenwriter, and producer. He is best known for directing the films The Shawshank Redemption, The Green Mile, and The Mist.",
-              Birth: 1959
+            "Director": {
+                "_id": "643355305683ef91921d2e8e",
+                "Name": "Christopher Nolan",
+                "Bio": "Christopher Nolan is a British-American film director, producer, and screenwriter. He is known for his non-linear, often complex narratives and his use of practical special effects UPDATED.",
+                "Birth": "1970-07-30T00:00:00.000Z"
             },
-            ImageURL: "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/shawshank.128000_480x.progressive.jpg?v=1590097750",
-            Featured: true
+            "ImageURL": "inception.png",
+            "Featured": true
         },
         {
-            Title: "Interstellar",
-            Description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-            Genre: {
-              Name: "Sci-Fi",
-              Description: "A genre that uses speculative, fictional science-based depictions of phenomena that are not fully accepted by mainstream science."
+            "Actors": [],
+            "_id": "643360075683ef91921d2ea1",
+            "Title": "The Dark Knight",
+            "Description": "The Dark Knight is a gritty and intense action-crime drama that explores the dark and twisted world of Batman (Christian Bale) and his arch-nemesis, the Joker (Heath Ledger). As the Joker terrorizes Gotham City with his ruthless and unpredictable behavior, Batman must navigate his own moral code while facing difficult choices in his efforts to stop the villain.",
+            "Genre": {
+                "_id": "643352e75683ef91921d2e85",
+                "name": "Action",
+                "description": "A genre of film in which the protagonist or protagonists are thrust into a series of challenges that typically include violence, extended fighting, physical feats, and frantic chases."
             },
-            Director: {
-              Name: "Christopher Nolan",
-              Bio: "Christopher Nolan is a British-American film director, producer, and screenwriter. He is known for his work on films such as Memento, The Dark Knight Trilogy, and Inception.",
-              Birth: 1970
+            "Director": {
+                "_id": "643355305683ef91921d2e8e",
+                "Name": "Christopher Nolan",
+                "Bio": "Christopher Nolan is a British-American film director, producer, and screenwriter. He is known for his non-linear, often complex narratives and his use of practical special effects UPDATED.",
+                "Birth": "1970-07-30T00:00:00.000Z"
             },
-            ImageURL: "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/interstellar3_480x.progressive.jpg?v=1585846947",
-            Featured: true
+            "ImageURL": "thedarkknight.png",
+            "Featured": true
         }
     ]
     </pre>
@@ -55,65 +63,85 @@
     <h2>GET /movies/:title</h2>
     <p>Returns data about a chosen movie.</p>
     <h3>Example Request:</h3>
-    <p>GET http://yourdomain.com/movies/Now%20You%20See%20Me</p>
+    <p>GET http://yourdomain.com/movies/Inception</p>
     <h3>Example Response:</h3>
     <p>Status Code: 200 OK</p>
     <pre>
-    {
-        Title: "Now You See Me",
-        Description: "An FBI agent and an Interpol detective track a team of illusionists who pull off bank heists during their performances and reward their audiences with the money.",
-        Genre: {
-            Name: "Thriller",
-            Description: "A genre that uses suspense, tension, and excitement as the main elements to keep the audience engaged."
-        },
-        Director: {
-            Name: "Louis Leterrier",
-            Bio: "Louis Leterrier is a French film director, producer, and screenwriter. He is known for his work on films such as The Transporter, The Incredible Hulk, and Clash of the Titans.",
-            Birth: 1973
-        },
-        ImageURL: "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/5b47e5155dccae8898a0f8a0b4beadb8_1518d8a7-a7da-4619-896b-2f6d1c0ec541_480x.progressive.jpg?v=1573594003",
-        Featured: false
-    }
+         {
+            "Actors": [],
+            "_id": "64335f855683ef91921d2ea0",
+            "Title": "Inception",
+            "Description": "Inception is a mind-bending, action-packed sci-fi thriller that follows a skilled thief, Dom Cobb (Leonardo DiCaprio), who is tasked with planting an idea into the mind of a wealthy businessman. Cobb and his team of specialists must navigate the dream world to pull off the impossible heist while dealing with the dangers of their own subconscious UPDATED.",
+            "Genre": {
+                "_id": "643352e75683ef91921d2e85",
+                "name": "Action",
+                "description": "A genre of film in which the protagonist or protagonists are thrust into a series of challenges that typically include violence, extended fighting, physical feats, and frantic chases."
+            },
+            "Director": {
+                "_id": "643355305683ef91921d2e8e",
+                "Name": "Christopher Nolan",
+                "Bio": "Christopher Nolan is a British-American film director, producer, and screenwriter. He is known for his non-linear, often complex narratives and his use of practical special effects UPDATED.",
+                "Birth": "1970-07-30T00:00:00.000Z"
+            },
+            "ImageURL": "inception.png",
+            "Featured": true
+        }
     </pre>
 
     <hr>
 
-    <h2>GET /movies/genre/:genreName</h2>
+    <h2>GET /genres/:genreName</h2>
     <p>Returns a description for a chosen genre of movie.</p>
     <h3>Example Request:</h3>
-    <p>GET http://yourdomain.com/movies/genre/Drama</p>
+    <p>GET http://yourdomain.com/genre/Thriller</p>
     <h3>Example Response:</h3>
     <p>Status Code: 200 OK</p>
     <pre>
-    {
-        "Name": "Drama",
-        "Description": "A serious narrative work that presents a realistic portrayal of characters within a social or emotional context."
-    }
+        {
+            "_id": "643352e75683ef91921d2e8c",
+            "name": "Thriller",
+            "description": "A genre of film that is characterized by tension, suspense, and excitement. Thrillers often involve the pursuit of a villain or the solving of a mystery, and may include action, danger, and psychological drama."
+        }
     </pre>
 
     <hr>
 
-    <h2>GET /movies/director/:directorName</h2>
+    <h2>GET /directors/:name</h2>
     <p>Returns data on a chosen director.</p>
     <h3>Example Request:</h3>
-    <p>GET http://yourdomain.com/movies/director/Christopher%20Nolan</p>
+    <p>GET http://yourdomain.com/director/Alfred%20Hitchcock</p>
     <h3>Example Response:</h3>
     <p>Status Code: 200 OK</p>
     <pre>
-    {
-        "Name": "Christopher Nolan",
-        "Bio": "Christopher Nolan is a British-American film director, producer, and screenwriter. He is known for his work on films such as Memento, The Dark Knight Trilogy, and Inception.",
-        "Birth": 1970
-    }
+        {
+            "_id": "643355305683ef91921d2e94",
+            "Name": "Alfred Hitchcock",
+            "Bio": "Alfred Hitchcock was an English film director and producer. He is widely regarded as one of the most influential and innovative filmmakers in the history of cinema, and is known for his work on films such as Psycho, Vertigo, and Rear Window.",
+            "Birth": "1899-08-13T00:00:00.000Z",
+            "Death": "1980-04-29T00:00:00.000Z"
+        }
     </pre>
 
     <hr>
 
-    <h2>PUT /users/:id/:movieTitle</h2>
+    <h2>POST /users/:username/movies/:movieID</h2>
     <p>Adds a movie to a user's favorite movies array.</p>
     <h3>Example Request:</h3>
-    <p>PUT http://yourdomain.com/users/1/The%20Godfather%20Part%20II</p>
+    <p>PUT http://yourdomain.com/users/exampleUser/movies/643352e75683ef91921d2e85</p>
     <h3>Example Response:</h3>
+    <pre>
+        {
+            "_id": "643f561267c7e740fc3fd639",
+            "Username": "exampleUser",
+            "Password": "examplePass",
+            "Email": "example@test.com",
+            "Birthday": "2023-10-12T06:00:00.000Z",
+            "FavoriteMovies": [
+                "643352e75683ef91921d2e85"
+            ],
+            "__v": 0
+        }
+    </pre>
     <p>Status Code: 200 OK</p>
     <p>The response will include a message indicating that the movie has been added to the user's favorite movies array.</p>
 
@@ -136,21 +164,33 @@
 
     <hr>
 
-    <h2>DELETE /users/:id/:movieTitle</h2>
+    <h2>DELETE /users/:id/:movieID</h2>
     <p>Removes a movie from a user's favorite movies array.</p>
     <h3>Example Request:</h3>
-    <p>DELETE http://yourdomain.com/users/1/The%20Godfather</p>
+    <p>DELETE http://yourdomain.com/users/exampleUser/movies/643352e75683ef91921d2e85</p>
     <h3>Example Response:</h3>
+    <pre>
+        {
+            "_id": "643f561267c7e740fc3fd639",
+            "Username": "exampleUser",
+            "Password": "examplePass",
+            "Email": "example@test.com",
+            "Birthday": "2023-10-12T06:00:00.000Z",
+            "FavoriteMovies": [],
+            "__v": 0
+        }
+    </pre>
     <p>Status Code: 200 OK</p>
     <p>The response will include a message indicating that the movie has been removed from the user's favorite movies array.</p>
 
     <hr>
 
-    <h2>DELETE /users/:id</h2>
+    <h2>DELETE /users/:username</h2>
     <p>Deletes a user by their ID.</p>
     <h3>Example Request:</h3>
-    <p>DELETE http://yourdomain.com/users/1</p>
+    <p>DELETE http://yourdomain.com/users/exampleUser</p>
     <h3>Example Response:</h3>
+    <p>exampleUser was deleted.</p>
     <p>Status Code: 200 OK</p>
     <p>The response will include a message indicating that the user has been deleted.</p>
 
@@ -162,13 +202,25 @@
     <p>POST http://yourdomain.com/users</p>
     <p>Request Body:</p>
     <pre>
-    {
-        "name": "Bob Smith",
-        "favoriteMovies": ["The Matrix", "Pulp Fiction"]
-    }
+        {
+            "Username": "exampleUser",
+            "Password": "examplePass",
+            "Email": "example@test.com",
+            "Birthday": "10/12/23"
+        }
     </pre>
     <h3>Example Response:</h3>
-    <p>Status Code: 201 Created</p>
+    <pre>
+        {
+            "Username": "exampleUser",
+            "Password": "examplePass",
+            "Email": "example@test.com",
+            "Birthday": "2023-10-12T06:00:00.000Z",
+            "FavoriteMovies": [],
+            "_id": "643f561267c7e740fc3fd639",
+            "__v": 0
+        }
+    </pre>
     <p>The response will include the newly created user object.</p>
 
     <hr>

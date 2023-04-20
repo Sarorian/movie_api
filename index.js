@@ -13,6 +13,9 @@ app.use(bodyParser.urlencoded({ extended: true}));
          Directors = Models.Director;
 
 app.use(bodyParser.json());
+let auth = require('./auth')(app);
+const passport = require('passport');
+require('./passport');
 
 //CREATE
 app.post('/users', (req, res) => {
@@ -42,7 +45,7 @@ app.post('/users', (req, res) => {
   });
 
 //READ
-app.get('/movies', (req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
     Movies.find()
       .populate('Genre')
       .populate('Director')

@@ -218,7 +218,7 @@ app.delete('/users/:Username', passport.authenticate('jwt', { session: false }),
 
 const connectDB = async () => {
     try {
-        mongoose.connect('mongodb://127.0.0.1:27017/mydatabase', { useNewUrlParser: true, useUnifiedTopology: true });
+        mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
         console.log("Connected to database sucesfully");
     } catch (e) {
         console.log(e);

@@ -4,7 +4,7 @@ const express = require('express'),
          uuid = require('uuid'),
           app = express();
 app.use(bodyParser.urlencoded({ extended: true}));
-         const PORT = 8080;
+         const PORT = 8080,
          mongoose = require('mongoose'),
          Models = require('./models.js'),
          Movies = Models.Movie,

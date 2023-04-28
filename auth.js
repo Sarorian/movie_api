@@ -20,12 +20,16 @@ module.exports = (router) => {
   router.post('/login', (req, res) => {
     passport.authenticate('local', { session: false }, (error, user, info) => {
       console.log(user);
-      if (error || !user) {
-        
+      if (error) {
         return res.status(400).json({
-          message: 'Something is not right',
+          message: 'There is an error',
           user: user
-        });
+        }); 
+      } else if (!user) {
+        return res.status(400).json({
+          message: 'User does not exist',
+          user: user
+        }); 
       }
       req.login(user, { session: false }, (error) => {
         if (error) {

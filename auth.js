@@ -31,7 +31,7 @@ module.exports = (router) => {
       if (!user) {
         return res.status(400).json({
           message: 'User does not exist',
-          user: user
+          user: "User here"
         }); 
       }
       req.login(user, { session: false }, (error) => {

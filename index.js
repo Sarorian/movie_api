@@ -72,7 +72,7 @@ app.post('/users', [
   });
 
 //READ
-app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies', (req, res) => {
     Movies.find()
       .populate('Genre')
       .populate('Director')

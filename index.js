@@ -173,10 +173,10 @@ app.put('/users/:Username',  [
     });
   });
 
-  app.post('/users/:Username/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
+  app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
     Users.findOneAndUpdate(
       { Username: req.params.Username },
-      { $push: { FavoriteMovies: req.params.Title } },
+      { $push: { FavoriteMovies: req.params.MovieID } },
       { new: true }
     )
       .then(updatedUser => {
@@ -189,9 +189,9 @@ app.put('/users/:Username',  [
   });
 
 //DELETE
-app.delete('/users/:Username/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
     Users.findOneAndUpdate({ Username: req.params.Username }, {
-       $pull: { FavoriteMovies: req.params.Title }
+       $pull: { FavoriteMovies: req.params.MovieID }
      },
      { new: true }
      )

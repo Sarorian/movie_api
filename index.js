@@ -189,9 +189,9 @@ app.put('/users/:Username',  [
   });
 
 //DELETE
-app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.delete('/users/:Username/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
     Users.findOneAndUpdate({ Username: req.params.Username }, {
-       $pull: { FavoriteMovies: req.params.MovieID }
+       $pull: { FavoriteMovies: req.params.Title }
      },
      { new: true }
      )

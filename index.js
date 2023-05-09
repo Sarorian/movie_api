@@ -173,10 +173,10 @@ app.put('/users/:Username',  [
     });
   });
 
-  app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
+  app.post('/users/:Username/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
     Users.findOneAndUpdate(
       { Username: req.params.Username },
-      { $push: { FavoriteMovies: req.params.MovieID } },
+      { $push: { FavoriteMovies: req.params.Title } },
       { new: true }
     )
       .then(updatedUser => {

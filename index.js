@@ -21,7 +21,7 @@ let allowedOrigins = [
   "http://localhost:1234",
   "http://192.168.0.88:1234/",
   "https://owen-myflix.netlify.app",
-  "http://localhost:4200/",
+  "http://localhost:4200",
 ];
 app.use(
   cors({
